@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TruthLens Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap 5 & Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/admin/css/style.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <div class="navbar">
+        TRUTHLENS ADMIN
+    </div>
+    <!-- SIDEBAR -->
+    <div class="admin-sidebar">
+        <a href="#" data-page="dashboard" class="active"><i class="fas fa-chart-bar"></i> Dashboard</a>
+        <a href="#" data-page="users"><i class="fas fa-users"></i> Users</a>
+        <a href="#" data-page="settings"><i class="fas fa-cog"></i> Settings</a>
+        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+    <!-- MAIN -->
+    <div class="main">
+        <h1 class="dashboard-title">AI Core Control Panel</h1>
+        <p class="dashboard-sub">Misinformation Monitoring System</p>
+        <div class="cards">
+            <div class="glass-card blue">
+                <i class="fas fa-check-square icon"></i>
+                <h3>Total Checks</h3>
+                <h2 id="totalChecks">0</h2>
+            </div>
+            <div class="glass-card red">
+                <i class="fas fa-exclamation icon"></i>
+                <h3>Fake Detected</h3>
+                <h2 id="fakeCount">0</h2>
+            </div>
+            <div class="glass-card green">
+                <i class="fas fa-comment icon"></i>
+                <h3>Messages</h3>
+                <h2 id="messageCount">0</h2>
+            </div>
+            <div class="glass-card yellow">
+                <i class="fas fa-link icon"></i>
+                <h3>URLs Analyzed</h3>
+                <h2 id="urlCount">0</h2>
+            </div>
+        </div>
+        <div class="mt-5">
+            <canvas id="dashboardChart"></canvas>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/admin/js/admin.js"></script>
+</body>
+</html>

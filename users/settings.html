@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Settings - TruthLens</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/users/css/style.css">
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <div class="nav-left">
+        <a href="/" class="home-btn">
+          <i class="bi bi-house-fill"></i>
+        </a>
+        <a class="navbar-brand" href="/">TruthLens</a>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="nav-right">
+        <a class="btn btn-outline-light" href="/news">News</a>
+        <a class="btn btn-outline-light" href="/message">Message</a>
+        <a class="btn btn-outline-light" href="/url">URL</a>
+        <a class="btn btn-outline-light" href="/login">Login</a>
+        <a class="btn logout-btn" id="logoutBtn" href="#" onclick="logout()" style="display:none;">
+          <i class="bi bi-box-arrow-right"></i> Logout
+        </a>
+        <a href="/settings?tab=history" class="settings-btn mobile-history-btn" title="History">
+          <i class="bi bi-clock-history"></i>
+        </a>
+        <a href="/settings" class="settings-btn">
+          <i class="bi bi-gear-fill"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <!-- SIDEBAR -->
+  <div class="side-menu">
+    <a href="#" class="active" onclick="openSettings()">
+      <i class="bi bi-gear"></i> Settings
+    </a>
+    <div class="history-dropdown">
+      <div class="history-toggle" onclick="toggleHistoryMenu()">
+        <i class="bi bi-clock-history"></i> History
+      </div>
+      <div class="history-submenu" id="historyMenu">
+        <a href="#" onclick="openHistory('message')">Message</a>
+        <a href="#" onclick="openHistory('news')">News</a>
+        <a href="#" onclick="openHistory('url')">URL</a>
+        <a href="#" onclick="openHistory('all')">All</a>
+      </div>
+    </div>
+  </div>
+  <!-- PAGE TITLE -->
+  <div class="page-title">
+    <h1 class="quantum-title">Settings</h1>
+    <p class="quantum-sub">Manage platform controls & history</p>
+  </div>
+  <!-- MAIN CONTENT -->
+  <div class="container settings-dashboard">
+    <!-- SETTINGS SECTION -->
+    <div class="settings-block" id="settingsSection">
+      <h3 class="dashboard-heading">
+        <i class="bi bi-sliders"></i> System Settings
+      </h3>
+      <div class="settings-row">
+        <label>Save detection history locally</label>
+        <label class="switch">
+          <input type="checkbox" id="saveHistory" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="settings-row">
+        <label>Show confirmation popups</label>
+        <label class="switch">
+          <input type="checkbox" id="showPopup" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="settings-row">
+        <label>Enable auto fake detection</label>
+        <label class="switch">
+          <input type="checkbox" id="autoDetect" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="settings-row">
+        <label>Highlight fake content</label>
+        <label class="switch">
+          <input type="checkbox" id="highlightFake" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="settings-row">
+        <label>Real-time AI scan</label>
+        <label class="switch">
+          <input type="checkbox" id="realTimeScan">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <button class="btn btn-primary mt-3" onclick="saveSettings()">
+        Save Settings
+      </button>
+    </div>
+    <!-- HISTORY SECTION -->
+    <div class="history-section" id="historySection" style="display:none;">
+      <h3 class="dashboard-heading">
+        <i class="bi bi-clock-history"></i> Detection History
+      </h3>
+      <div class="history-controls">
+        <input type="text" id="historySearch" placeholder="Search history..." onkeyup="searchHistory()"
+          class="history-search">
+        <button class="btn btn-danger" onclick="deleteAllHistory()">
+          Delete All History
+        </button>
+      </div>
+      <div class="history-table">
+        <table class="table table-borderless table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Type</th>
+              <th>Content</th>
+              <th>Time</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="historyList">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="/users/js/main.js"></script>
+</body>
+
+</html>

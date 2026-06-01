@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>TruthLens - Misinformation Detection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/users/css/style.css">
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+
+      <div class="nav-left">
+        <a class="navbar-brand" href="/">TruthLens</a>
+      </div>
+
+      <div class="nav-right">
+        <a class="btn btn-outline-light" href="/news">News</a>
+        <a class="btn btn-outline-light" href="/message">Message</a>
+        <a class="btn btn-outline-light" href="/url">URL</a>
+        <a class="btn btn-outline-light" href="/login">Login</a>
+        <a class="btn logout-btn" id="logoutBtn" href="#" onclick="logout()" style="display:none;">
+          <i class="bi bi-box-arrow-right"></i>Logout
+        </a>
+        <a href="/settings" class="settings-btn" title="Settings">
+          <i class="bi bi-gear-fill"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>See the Truth<br>Before You Share</h1>
+      <p>
+        An AI-powered misinformation detection platform that identifies fake news,
+        misleading messages, and suspicious URLs using machine learning intelligence.
+      </p>
+      <a href="/news" class="btn btn-primary btn-lg mt-4">
+        Start One-Time Detection
+      </a>
+    </div>
+  </section>
+  <!-- FEATURES -->
+  <section class="container">
+    <div class="section-title">
+      <h2>Powered by <span>Machine Intelligence</span></h2>
+      <p class="text-secondary mt-2">Fast • Reliable • Secure</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="glass p-4 text-center h-100 clickable"
+          onclick="openPopup('/news','Fake News Detection','Analyzing news credibility using AI models.')">
+          <div class="icon"><i class="bi bi-newspaper"></i></div>
+          <h5>Fake News Detection</h5>
+          <p class="text-secondary mt-2">
+            Advanced ML models analyze linguistic patterns to identify fake or real news.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="glass p-4 text-center h-100 clickable"
+          onclick="openPopup('/message','Message Analysis','Checking deceptive or scam messages.')">
+          <div class="icon"><i class="bi bi-chat-dots"></i></div>
+          <h5>Message Analysis</h5>
+          <p class="text-secondary mt-2">
+            Detect deceptive messages commonly spread across digital communication platforms.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="glass p-4 text-center h-100 clickable"
+          onclick="openPopup('/url','URL Verification','Verifying malicious or phishing URLs.')">
+          <div class="icon"><i class="bi bi-link-45deg"></i></div>
+          <h5>URL Verification</h5>
+          <p class="text-secondary mt-2">
+            Identify malicious or phishing websites before users interact with them.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- POPUP -->
+  <div id="popupOverlay" class="popup-overlay">
+    <div class="popup-box">
+      <h4 id="popupTitle"></h4>
+      <p id="popupText" class="mt-3"></p>
+      <button class="btn btn-primary mt-4" onclick="goPage()">Proceed</button>
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 TruthLens | Online Misinformation Detection Platform
+    <br>
+    Final Year Project - Python • Machine Learning • Web Technologies
+  </footer>
+  <script src="/users/js/main.js"></script>
+  
+</body>
+
+</html>
